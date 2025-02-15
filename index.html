@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Meta tags y enlaces previos se mantienen igual -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Alberto Montenegro | Programmer & Finance Enthusiast</title>
+
+    <link rel="icon" href="favicon.ico" type="image/png" />
+    <link href="https://fonts.googleapis.com/css?family=Reem+Kufi|Roboto:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.13.1/css/all.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="white-blue.css">
+</head>
+<body>
+
+    <!-- Contenedor para partículas -->
+    <div id="particles-js"></div>
+
+    <!-- Ticker de Acciones en Vivo -->
+    <div class="stock-ticker"><strong>📈 Top 10 Acciones USA: </strong></div>
+
+    <main>
+        <div class="intro">Hello, I'm Alberto!</div>
+        <div class="tagline">Problem Solver | Finance & Tech | Linux Hacker</div>
+
+        <!-- Sección de Habilidades -->
+      
+<div class="skills">
+    <div class="skills-row">
+        <div class="skill-chip">Quant Finance</div>
+        <div class="skill-chip">Data Engineering</div>
+        <div class="skill-chip">Cloud DevOps</div>
+    </div>
+    <div class="skills-row">
+        <div class="skill-chip">Financial Analysis</div>
+        <div class="skill-chip">Automation</div>
+        <div class="skill-chip">Banking Systems</div>
+    </div>
+</div>
+
+
+        <!-- Redes Sociales COMPLETAS -->
+        <div class="icons-social">
+            <a target="_blank" href="https://github.com/AMonten">
+                <i class="fab fa-github" aria-hidden="true" title="Github"></i>
+                <span class="sr-only">Github</span>
+            </a>
+            <a target="_blank" href="https://twitter.com/">
+                <i class="fab fa-twitter" aria-hidden="true" title="Twitter"></i>
+                <span class="sr-only">Twitter</span>
+            </a>
+            <a target="_blank" href="https://dev.to/">
+                <i class="fab fa-dev" aria-hidden="true" title="DEV Community"></i>
+                <span class="sr-only">DEV Community</span>
+            </a>
+            <a target="_blank" href="https://stackoverflow.com/story/">
+                <i class="fab fa-stack-overflow" aria-hidden="true" title="StackOverflow"></i>
+                <span class="sr-only">StackOverflow</span>
+            </a>
+            <a target="_blank" href="https://pa.linkedin.com/in/alberto-montenegro-vargas">
+                <i class="fab fa-linkedin" aria-hidden="true" title="LinkedIn"></i>
+                <span class="sr-only">LinkedIn</span>
+            </a>
+            <a target="_blank" href="https://www.freecodecamp.org">
+                <i class="fab fa-free-code-camp" aria-hidden="true" title="FreeCodeCamp"></i>
+                <span class="sr-only">FreeCodeCamp</span>
+            </a>
+            <a target="_blank" href="https://www.behance.net">
+                <i class="fab fa-behance" aria-hidden="true" title="Behance"></i>
+                <span class="sr-only">Behance</span>
+            </a>
+            <a target="_blank" href="https://codepen.io">
+                <i class="fab fa-codepen" aria-hidden="true" title="CodePen"></i>
+                <span class="sr-only">CodePen</span>
+            </a>
+        </div>
+    </main>
+
+<!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { 
+                    "value": window.innerWidth < 768 ? 30 : 50,
+                    "density": { "enable": true, "value_area": 800 } 
+                },
+                "color": { "value": "#0277BD" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5, "random": true },
+                "size": { "value": 3, "random": true },
+                "move": { "enable": true, "speed": 1 }
+            },
+            "interactivity": {
+                "events": { "onhover": { "enable": true, "mode": "repulse" } }
+            }
+        });
+    </script>
+
+    <!-- Ticker de Acciones Mejorado -->
+    <script>
+    const apiKey = "cuntd6pr01qokt73jpl0cuntd6pr01qokt73jplg";
+    const tickers = ["AAPL", "MSFT", "GOOGL", "AMZN", "TSLA", "META", "NVDA", "BRK.A", "JPM", "V"];
+    let currentIndex = 0;
+    const stockContainer = document.querySelector(".stock-ticker");
+
+    async function fetchStockData() {
+        try {
+            const ticker = tickers[currentIndex];
+            const response = await fetch(`https://finnhub.io/api/v1/quote?symbol=${ticker}&token=${apiKey}`);
+            const data = await response.json();
+
+            const changePercentage = ((data.c - data.pc) / data.pc * 100).toFixed(2);
+            const changeSymbol = changePercentage >= 0 ? '▲' : '▼';
+            const changeClass = changePercentage >= 0 ? 'up' : 'down';
+
+            const stockElement = document.getElementById(`stock-${ticker}`);
+            if(stockElement) {
+                stockElement.innerHTML = `
+                    ${ticker}: $${data.c.toFixed(2)} 
+                    <span class="change ${changeClass}">
+                        ${changeSymbol} ${Math.abs(changePercentage)}%
+                    </span>
+                `;
+            } else {
+                const newStock = document.createElement('span');
+                newStock.id = `stock-${ticker}`;
+                newStock.innerHTML = `
+                    ${ticker}: $${data.c.toFixed(2)} 
+                    <span class="change ${changeClass}">
+                        ${changeSymbol} ${Math.abs(changePercentage)}%
+                    </span>
+                `;
+                stockContainer.appendChild(newStock);
+            }
+            
+            currentIndex = (currentIndex + 1) % tickers.length;
+        } catch (error) {
+            console.error(`Error obteniendo datos: ${error}`);
+        }
+    }
+
+    // Inicializar ticker
+    stockContainer.innerHTML = "<strong>📈 Mercado en Tiempo Real:</strong>";
+    tickers.forEach(ticker => {
+        const span = document.createElement('span');
+        span.id = `stock-${ticker}`;
+        span.innerHTML = `${ticker}: Cargando...`;
+        stockContainer.appendChild(span);
+    });
+
+    setInterval(fetchStockData, 3000);  // Actualizar cada 3 segundos
+    fetchStockData(); // Primera carga
+
+    </script>
+</body>
+</html>
