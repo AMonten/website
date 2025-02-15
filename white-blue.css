@@ -107,11 +107,10 @@ body {
 
 /* Modo oscuro */
 @media (prefers-color-scheme: dark) {
-    body {
-        background-color: #121212;
-        color: #E1F5FE;
+    body, #particles-js {
+        background-color: #121212 !important;
+        color: #E1F5FE !important;
     }
-
     .stock-ticker-container {
         background: #01579B;
     }
