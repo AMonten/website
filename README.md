@@ -1,6 +1,6 @@
 # Alberto Montenegro | Personal Website 🚀
 
-![Website Preview](https://your-screenshot-link.com)
+![Website Preview](https:amonten.com)
 
 Bienvenido a mi sitio web personal, un portafolio simple pero elegante para mostrar mi perfil profesional, intereses y redes sociales. 🎨💻
 
