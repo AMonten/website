@@ -1,4 +1,6 @@
 # Alberto Montenegro | Personal Website 🚀
+[![License](https://camo.githubusercontent.com/6cd0120cc4c5ac11d28b2c60f76033b52db98dac641de3b2644bb054b449d60c/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4c6963656e73652d4d49542d79656c6c6f772e737667)](https://opensource.org/licenses/MIT)
+[![Version](https://camo.githubusercontent.com/0c12898c29b33fce0224cd6df0761f4f385550eb7be745615277e578943c0832/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f76657273696f6e2d312e302e302d626c75652e7376673f63616368655365636f6e64733d32353932303030)](https://github.com/AMonten/website/releases)
 
 [🌐 Ver mi sitio web](https://amonten.com)
 
