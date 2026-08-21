@@ -27,6 +27,9 @@ Si deseas clonar y ejecutar este proyecto en tu máquina local, sigue estos paso
 ### 2. 🌐 Abrir en un navegador
 Navega hasta la carpeta del proyecto y abre `index.html` en tu navegador preferido.
 
+### 3. 📈 Ticker de acciones (Netlify Function)
+El ticker no llama a Finnhub directo desde el navegador — pasa por `netlify/functions/quotes.js` para que la API key nunca quede expuesta en el cliente. Para que funcione en un deploy de Netlify hay que configurar la variable de entorno `FINNHUB_API_KEY` (Site configuration → Environment variables, o `netlify env:set FINNHUB_API_KEY <tu-key>`) con una API key de [Finnhub](https://finnhub.io/) — nunca la pongas directamente en el código.
+
 ### 3. 🎨 Personalización
 Si deseas cambiar el tema de colores, puedes modificar el archivo de estilos en la carpeta:
 ```

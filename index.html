@@ -99,7 +99,8 @@
 
     <!-- Ticker de Acciones Animado -->
     <script>
-        const apiKey = "cuntd6pr01qokt73jpl0cuntd6pr01qokt73jplg";
+        // La API key de Finnhub vive del lado del servidor (Netlify Function
+        // en netlify/functions/quotes.js), nunca en este script.
         const tickers = ["AAPL", "MSFT", "GOOGL", "AMZN", "TSLA", "META", "NVDA", "BRK.A", "JPM", "V"];
         const tickerContent = document.querySelector(".ticker-content");
 
@@ -120,21 +121,29 @@
 
         // Actualizar datos cada 30s sin afectar la animación
         async function updateTickerData() {
-            tickers.forEach(async (ticker) => {
-                try {
-                    const response = await fetch(`https://finnhub.io/api/v1/quote?symbol=${ticker}&token=${apiKey}`);
-                    const data = await response.json();
+            try {
+                const response = await fetch(`/.netlify/functions/quotes?symbols=${tickers.join(",")}`);
+                const data = await response.json();
 
-                    const change = ((data.c - data.pc) / data.pc * 100).toFixed(2);
-                    const changeElement = change >= 0 ? 
-                        `<span class="change up">▲${Math.abs(change)}%</span>` : 
+                tickers.forEach(ticker => {
+                    const el = document.getElementById(`stock-${ticker}`);
+                    const quote = data[ticker];
+                    if (!el) return;
+                    if (!quote || quote.error || quote.c == null) {
+                        el.innerHTML = `${ticker}: N/D`;
+                        return;
+                    }
+
+                    const change = ((quote.c - quote.pc) / quote.pc * 100).toFixed(2);
+                    const changeElement = change >= 0 ?
+                        `<span class="change up">▲${Math.abs(change)}%</span>` :
                         `<span class="change down">▼${Math.abs(change)}%</span>`;
 
-                    document.getElementById(`stock-${ticker}`).innerHTML = `${ticker}: $${data.c.toFixed(2)} ${changeElement}`;
-                } catch (error) {
-                    console.error(`Error con ${ticker}:`, error);
-                }
-            });
+                    el.innerHTML = `${ticker}: $${quote.c.toFixed(2)} ${changeElement}`;
+                });
+            } catch (error) {
+                console.error("Error actualizando el ticker:", error);
+            }
         }
 
         initializeTicker();
