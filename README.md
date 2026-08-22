@@ -1,6 +1,6 @@
 # Alberto Montenegro | Personal Website 🚀
-[![License](https://camo.githubusercontent.com/6cd0120cc4c5ac11d28b2c60f76033b52db98dac641de3b2644bb054b449d60c/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4c6963656e73652d4d49542d79656c6c6f772e737667)](https://opensource.org/licenses/MIT)
-[![Version](https://camo.githubusercontent.com/0c12898c29b33fce0224cd6df0761f4f385550eb7be745615277e578943c0832/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f76657273696f6e2d312e302e302d626c75652e7376673f63616368655365636f6e64733d32353932303030)](https://github.com/AMonten/website/releases)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Hosted on Netlify](https://img.shields.io/badge/Hosted%20on-Netlify-00C7B7?logo=netlify&logoColor=white)](https://amonten.com)
 
 [🌐 Ver mi sitio web](https://amonten.com)
 
@@ -13,7 +13,8 @@ Este sitio web ha sido desarrollado utilizando:
 - **HTML5** 📄 - Estructura del contenido.
 - **CSS3** 🎨 - Estilización y diseño responsivo.
 - **Google Fonts** 🔤 - Fuentes tipográficas utilizadas: Reem Kufi y Roboto.
-- **FontAwesome** 🎭 - Íconos para enlaces a redes sociales.
+- **SVG inline ([Simple Icons](https://simpleicons.org/), MIT)** 🎭 - Íconos para enlaces a redes sociales, sin dependencia de ninguna librería externa.
+- **Netlify Functions** ⚡ - Proxy server-side para el ticker de acciones (Finnhub), sin exponer ninguna API key en el cliente.
 
 ## 📥 Instalación y Uso
 
@@ -30,30 +31,32 @@ Navega hasta la carpeta del proyecto y abre `index.html` en tu navegador preferi
 ### 3. 📈 Ticker de acciones (Netlify Function)
 El ticker no llama a Finnhub directo desde el navegador — pasa por `netlify/functions/quotes.js` para que la API key nunca quede expuesta en el cliente. Para que funcione en un deploy de Netlify hay que configurar la variable de entorno `FINNHUB_API_KEY` (Site configuration → Environment variables, o `netlify env:set FINNHUB_API_KEY <tu-key>`) con una API key de [Finnhub](https://finnhub.io/) — nunca la pongas directamente en el código.
 
-### 3. 🎨 Personalización
-Si deseas cambiar el tema de colores, puedes modificar el archivo de estilos en la carpeta:
-```
-/css/themes/white-blue.css
-```
-O bien, seleccionar otro tema descomentando las líneas correspondientes en `index.html`.
+### 4. 🎨 Personalización
+Si deseas cambiar el tema de colores, edita directamente `white-blue.css` en la raíz del proyecto (es la única hoja de tema que carga `index.html` hoy).
 
 ## 📁 Estructura del Proyecto
 ```
 website/
-├── css/
-│   ├── reset.css  # Reset básico de estilos
-│   ├── styles.css # Estilos generales del sitio
-│   ├── themes/
-│   │   ├── white-blue.css  # Tema de colores activo
-│   │   ├── (otros temas opcionales)
-├── index.html   # Página principal
-├── favicon.ico  # Ícono del sitio
+├── index.html           # Página principal
+├── reset.css            # Reset básico de estilos
+├── styles.css           # Estilos generales del sitio
+├── white-blue.css       # Tema de colores activo
+├── robots.txt / sitemap.xml
+├── site.webmanifest
+├── favicon.ico, favicon.svg, favicon-*.png, apple-touch-icon.png, android-chrome-*.png, web-app-manifest-*.png
+├── netlify.toml         # Config de build/functions de Netlify
+├── _headers             # Cache-Control por tipo de archivo
+└── netlify/
+    └── functions/
+        └── quotes.js    # Proxy server-side a Finnhub (ver sección del ticker)
 ```
 
 ## 🙌 Créditos
 - **Desarrollador:** [Alberto Montenegro](https://github.com/AMonten) 👨‍💻
 - **Fuentes:** [Google Fonts](https://fonts.google.com/) 🔠
-- **Íconos:** [FontAwesome](https://fontawesome.com/) 🎭
+- **Íconos:** [Simple Icons](https://simpleicons.org/) 🎭
+- **Hosting:** [Netlify](https://www.netlify.com/) ⚡
+- **Datos de mercado:** [Finnhub](https://finnhub.io/) 📈
 
 ## 📜 Licencia
 Este proyecto es de código abierto bajo la licencia MIT. ¡Siéntete libre de usarlo y modificarlo a tu gusto! ✨
