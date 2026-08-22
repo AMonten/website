@@ -1,5 +1,8 @@
-# El HTML se revalida siempre para que un deploy nuevo se vea al instante;
-# los assets estáticos (CSS, íconos) se cachean agresivamente por un año.
+# El HTML y el CSS se revalidan siempre (este sitio no usa nombres de
+# archivo con hash, así que cachear agresivamente el CSS deja a los
+# visitantes viendo una versión vieja durante hasta un año cada vez que
+# se edita styles.css/white-blue.css/reset.css sin cambiar de nombre).
+# Los íconos/imágenes sí se cachean agresivamente porque rara vez cambian.
 /
   Cache-Control: public, max-age=0, must-revalidate
 
@@ -7,7 +10,7 @@
   Cache-Control: public, max-age=0, must-revalidate
 
 /*.css
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=0, must-revalidate
 
 /*.png
   Cache-Control: public, max-age=31536000, immutable
