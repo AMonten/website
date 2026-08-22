@@ -54,7 +54,9 @@ main {
 	flex-direction: column;
 	min-height: 100vh;
 	justify-content: center;
-	padding: 0 30px;
+	/* padding-top reserva el espacio del stock-ticker-container (fixed, 40px)
+	   para que no tape el contenido en viewports cortos */
+	padding: 40px 30px 0;
 	text-align: center;
 }
 

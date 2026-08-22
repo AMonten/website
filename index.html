@@ -1,11 +1,23 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Soy Alberto Montenegro, experto en finanzas y tecnología. Desarrollo soluciones de automatización, análisis de datos y finanzas cuantitativas. Descubre mis proyectos y conocimientos.">
     <title>Alberto Montenegro | Programmer & Finance Enthusiast</title>
+    <link rel="canonical" href="https://amonten.com/">
+
+    <!-- Open Graph / Twitter Card -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://amonten.com/">
+    <meta property="og:title" content="Alberto Montenegro | Programmer & Finance Enthusiast">
+    <meta property="og:description" content="Soy Alberto Montenegro, experto en finanzas y tecnología. Desarrollo soluciones de automatización, análisis de datos y finanzas cuantitativas. Descubre mis proyectos y conocimientos.">
+    <meta property="og:image" content="https://amonten.com/web-app-manifest-512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Alberto Montenegro | Programmer & Finance Enthusiast">
+    <meta name="twitter:description" content="Soy Alberto Montenegro, experto en finanzas y tecnología. Desarrollo soluciones de automatización, análisis de datos y finanzas cuantitativas. Descubre mis proyectos y conocimientos.">
+    <meta name="twitter:image" content="https://amonten.com/web-app-manifest-512x512.png">
+    <meta name="twitter:site" content="@amonten_com">
 
 
     <!-- Favicon para navegadores -->
@@ -23,11 +35,31 @@
 <!-- Archivo de configuración para navegadores modernos -->
 <link rel="manifest" href="site.webmanifest">
     <link href="https://fonts.googleapis.com/css?family=Reem+Kufi|Roboto:300" rel="stylesheet">
-    <link href="https://use.fontawesome.com/releases/v5.13.1/css/all.css" rel="stylesheet">
-    
+    <!-- Solo los bundles de FontAwesome que usamos (base + brands, todos los íconos son marcas) -->
+    <link href="https://use.fontawesome.com/releases/v5.13.1/css/fontawesome.css" rel="stylesheet"
+          integrity="sha384-O6duc3QftgMWW3awKiGYswymy288kVFZgGWC/4YCl48Y0codWJRgs8DA0N4dX/zx" crossorigin="anonymous">
+    <link href="https://use.fontawesome.com/releases/v5.13.1/css/brands.css" rel="stylesheet"
+          integrity="sha384-pmyS4Hp0pc0tA0poF+AKYeURgyIgYLt12rD/6gLC98rTImbSYIe75vT2/3jK4zIh" crossorigin="anonymous">
+
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="white-blue.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Alberto Montenegro",
+        "url": "https://amonten.com/",
+        "sameAs": [
+            "https://github.com/AMonten",
+            "https://www.linkedin.com/in/alberto-montenegro-vargas",
+            "https://x.com/amonten_com",
+            "https://dev.to/amonten",
+            "https://stackoverflow.com/users/33054240/alberto-montenegro"
+        ]
+    }
+    </script>
 </head>
 <body>
 
@@ -60,27 +92,28 @@
                 <i class="fab fa-github" aria-hidden="true" title="Github"></i>
                 <span class="sr-only">Github</span>
             </a>
-            <a target="_blank" href="https://twitter.com/">
-                <i class="fab fa-twitter" aria-hidden="true" title="Twitter"></i>
-                <span class="sr-only">Twitter</span>
+            <a target="_blank" href="https://x.com/amonten_com">
+                <i class="fab fa-twitter" aria-hidden="true" title="X (Twitter)"></i>
+                <span class="sr-only">X (Twitter)</span>
             </a>
-            <a target="_blank" href="https://dev.to/">
+            <a target="_blank" href="https://dev.to/amonten">
                 <i class="fab fa-dev" aria-hidden="true" title="DEV Community"></i>
                 <span class="sr-only">DEV Community</span>
             </a>
-            <a target="_blank" href="https://stackoverflow.com/story/">
+            <a target="_blank" href="https://stackoverflow.com/users/33054240/alberto-montenegro">
                 <i class="fab fa-stack-overflow" aria-hidden="true" title="StackOverflow"></i>
                 <span class="sr-only">StackOverflow</span>
             </a>
-            <a target="_blank" href="https://pa.linkedin.com/in/alberto-montenegro-vargas">
+            <a target="_blank" href="https://www.linkedin.com/in/alberto-montenegro-vargas">
                 <i class="fab fa-linkedin" aria-hidden="true" title="LinkedIn"></i>
                 <span class="sr-only">LinkedIn</span>
             </a>
         </div>
     </main>
 
-    <!-- Particles.js -->
-    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+    <!-- Particles.js (versión fijada + SRI, en vez de "latest" sin verificar) -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"
+            integrity="sha384-oHYQNeDBTZNj6KnIfJMAzcEn2OTbeMKKXFeEwU6T+pH0oS1yTIzEBaW6BXmCtvs2" crossorigin="anonymous"></script>
     <script>
         particlesJS("particles-js", {
             "particles": {
