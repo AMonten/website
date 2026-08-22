@@ -143,8 +143,9 @@ body {
         font-size: 1rem;
     }
 
-    .icons-social a {
-        font-size: 20px;
+    .icons-social svg {
+        width: 22px;
+        height: 22px;
     }
 
     .stock-item {

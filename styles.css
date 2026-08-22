@@ -28,8 +28,11 @@ html {
 	}
 }
 
-.icons-social i {
-	font-size: 3em;
+.icons-social svg {
+	width: 28px;
+	height: 28px;
+	fill: currentColor;
+	display: block;
 }
 
 /* Texto para lectores de pantalla, oculto visualmente (los íconos ya
@@ -72,21 +75,7 @@ main > .tagline {
 	font-weight: 100;
 }
 
-.icons-social i {
-	padding: 10px;
-}
-
 .icons-social a {
-  text-decoration: none;
-}
-
-.devto {
-	margin-bottom: -0.20rem;
-}
-
-.devto svg {
-	margin-bottom: -0.20rem;
-	margin-left: 0.675rem;;
-	width: 2.65rem;
-	height: 2.65rem;
+	padding: 10px;
+	text-decoration: none;
 }
