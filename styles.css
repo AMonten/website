@@ -75,6 +75,14 @@ main > .tagline {
 	font-weight: 100;
 }
 
+main > .about {
+	max-width: 640px;
+	margin: 0 auto 1.5rem;
+	font-size: 1rem;
+	line-height: 1.6;
+	font-weight: 300;
+}
+
 .icons-social a {
 	padding: 10px;
 	text-decoration: none;
