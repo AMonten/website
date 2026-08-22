@@ -146,9 +146,10 @@
         </div>
     </main>
 
-    <!-- Particles.js (versión fijada + SRI, en vez de "latest" sin verificar) -->
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"
-            integrity="sha384-oHYQNeDBTZNj6KnIfJMAzcEn2OTbeMKKXFeEwU6T+pH0oS1yTIzEBaW6BXmCtvs2" crossorigin="anonymous"></script>
+    <!-- Particles.js: versión fijada (2.0.0, evita que cargue "latest" sin avisar).
+         Sin SRI: jsdelivr sirvió bytes distintos en distintos PoPs para este archivo,
+         lo que hacía que el navegador bloqueara el script por hash no coincidente. -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script>
         particlesJS("particles-js", {
             "particles": {
