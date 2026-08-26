@@ -49,6 +49,35 @@ body {
     display: inline-block;
 }
 
+/* Sección de proyectos */
+.section-label {
+    color: #0277BD;
+    opacity: 0.7;
+}
+
+.project-card {
+    background: #FFFFFF;
+    color: #0277BD;
+    border: 1px solid rgba(2, 119, 189, 0.2);
+    box-shadow: 0 1px 3px rgba(2, 119, 189, 0.08);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.project-card p {
+    color: #01579B;
+    opacity: 0.85;
+}
+
+.project-card .project-link {
+    color: #0277BD;
+    font-weight: bold;
+}
+
+a.project-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(2, 119, 189, 0.15);
+}
+
 /* Estilos para los iconos de redes sociales */
 .icons-social {
     display: flex;
@@ -122,6 +151,25 @@ body {
     .skill-chip {
         background: #01579B;
         color: #E1F5FE;
+    }
+
+    .section-label {
+        color: #81D4FA;
+    }
+
+    .project-card {
+        background: #1A1A1A;
+        border-color: rgba(129, 212, 250, 0.25);
+        box-shadow: none;
+        color: #E1F5FE;
+    }
+
+    .project-card p {
+        color: #B3E5FC;
+    }
+
+    .project-card .project-link {
+        color: #81D4FA;
     }
 
     .icons-social a {

@@ -63,6 +63,13 @@ main {
 	text-align: center;
 }
 
+/* Los hijos directos de un flex column tienen min-width:auto por defecto,
+   así que .skills/.projects no se encogían por debajo del ancho de su
+   contenido y desbordaban el viewport en móvil. */
+main > * {
+	min-width: 0;
+}
+
 main > .intro {
 	font-family: 'Reem Kufi', sans-serif;
 	font-size: 3.75em;
@@ -75,12 +82,78 @@ main > .tagline {
 	font-weight: 100;
 }
 
+/* Por debajo de 576px no hay breakpoint de html { font-size } (ver arriba),
+   así que .intro/.tagline heredan el tamaño base y desbordan el viewport;
+   este ajuste evita el scroll horizontal en móviles angostos. */
+@media (max-width: 480px) {
+	main > .intro {
+		font-size: 2.4em;
+	}
+
+	main > .tagline {
+		font-size: 1.1rem;
+	}
+}
+
+main > .value-prop {
+	max-width: 640px;
+	margin: 0 auto 1.75rem;
+	font-size: 1.15rem;
+	line-height: 1.5;
+	font-weight: 300;
+}
+
 main > .about {
 	max-width: 640px;
 	margin: 0 auto 1.5rem;
 	font-size: 1rem;
 	line-height: 1.6;
 	font-weight: 300;
+}
+
+.section-label {
+	font-size: 0.8rem;
+	font-weight: 400;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	margin: 0.5rem 0 1rem;
+}
+
+.projects {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: 1rem;
+	width: 100%;
+	max-width: 900px;
+	margin: 0 auto 2rem;
+	text-align: left;
+}
+
+.project-card {
+	display: block;
+	padding: 1.1rem 1.25rem;
+	border-radius: 12px;
+	text-decoration: none;
+}
+
+.project-card h3 {
+	font-size: 0.95rem;
+	font-weight: 700;
+	margin: 0 0 0.4rem;
+}
+
+.project-card p {
+	font-size: 0.85rem;
+	line-height: 1.5;
+	font-weight: 300;
+	margin: 0;
+}
+
+.project-card .project-link {
+	display: inline-block;
+	font-size: 0.8rem;
+	font-weight: 400;
+	margin-top: 0.6rem;
 }
 
 .icons-social a {
