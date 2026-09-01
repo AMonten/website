@@ -78,6 +78,22 @@ a.project-card:hover {
     box-shadow: 0 4px 10px rgba(2, 119, 189, 0.15);
 }
 
+/* Sección de FAQ */
+.faq details {
+    background: #FFFFFF;
+    border: 1px solid rgba(2, 119, 189, 0.2);
+    color: #0277BD;
+}
+
+.faq p {
+    color: #01579B;
+    opacity: 0.85;
+}
+
+.faq a {
+    color: #0277BD;
+}
+
 /* Estilos para los iconos de redes sociales */
 .icons-social {
     display: flex;
@@ -169,6 +185,20 @@ a.project-card:hover {
     }
 
     .project-card .project-link {
+        color: #81D4FA;
+    }
+
+    .faq details {
+        background: #1A1A1A;
+        border-color: rgba(129, 212, 250, 0.25);
+        color: #E1F5FE;
+    }
+
+    .faq p {
+        color: #B3E5FC;
+    }
+
+    .faq a {
         color: #81D4FA;
     }
 

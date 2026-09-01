@@ -103,6 +103,41 @@
         ]
     }
     </script>
+
+    <!-- FAQPage: elegible para rich results en Google; el contenido replica
+         el de la sección FAQ visible más abajo (requisito de Google). -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What does Alberto Montenegro do?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "I'm a software developer and financial markets professional based in Panama. I build automation tools and data pipelines, mostly in Python, that turn manual financial workflows into reliable, auditable processes, with a background in fixed income, equities, and structured products."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What technologies does Alberto Montenegro work with?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Python, SQL, Docker, and Cloudflare Tunnel for self-hosted infrastructure, plus JavaScript for web tooling. Focus areas include financial data automation, fixed-income analytics, and self-hosting."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Where can I see Alberto Montenegro's projects?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Most open-source work is public on GitHub at github.com/AMonten, including financial data tools, fixed-income analytics, and self-hosted infrastructure projects."
+                }
+            }
+        ]
+    }
+    </script>
 </head>
 <body>
 
@@ -174,6 +209,23 @@
         </div>
 
         <p class="about">I'm a software developer and financial markets professional based in Panama, working at the intersection of technology and international markets operations. I build practical automation tools—mostly in Python—that turn manual, error-prone financial workflows into reliable, auditable processes. My background spans fixed income, equities, and structured products. I hold the CFA Institute Investment Foundations Certificate, along with AWS credentials in cloud architecture, cybersecurity, web development, and cloud operations.</p>
+
+        <!-- FAQ: contenido visible que respalda el FAQPage JSON-LD del <head>. -->
+        <h2 class="section-label">FAQ</h2>
+        <div class="faq">
+            <details>
+                <summary>What does Alberto Montenegro do?</summary>
+                <p>I'm a software developer and financial markets professional based in Panama. I build automation tools and data pipelines, mostly in Python, that turn manual financial workflows into reliable, auditable processes, with a background in fixed income, equities, and structured products.</p>
+            </details>
+            <details>
+                <summary>What technologies does Alberto Montenegro work with?</summary>
+                <p>Python, SQL, Docker, and Cloudflare Tunnel for self-hosted infrastructure, plus JavaScript for web tooling. Focus areas include financial data automation, fixed-income analytics, and self-hosting.</p>
+            </details>
+            <details>
+                <summary>Where can I see Alberto Montenegro's projects?</summary>
+                <p>Most of my open-source work is public on GitHub at <a href="https://github.com/AMonten" target="_blank" rel="noopener">github.com/AMonten</a>, including financial data tools, fixed-income analytics, and self-hosted infrastructure projects.</p>
+            </details>
+        </div>
 
         <!-- Redes Sociales: SVG inline (Simple Icons, MIT) en vez de FontAwesome -->
         <div class="icons-social">
